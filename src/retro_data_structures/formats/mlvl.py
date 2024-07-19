@@ -327,7 +327,7 @@ class Mlvl(BaseResource):
     @property
     def _name_strg(self) -> Strg:
         if self._name_strg_cached is None:
-            self._name_strg_cached = self.asset_manager.get_file(self._raw.world_name_id, type_hint=Strg)
+            self._name_strg_cached = self.asset_manager.get_asset(self._raw.world_name_id, type_hint=Strg)
         return self._name_strg_cached
 
     @property
@@ -335,7 +335,7 @@ class Mlvl(BaseResource):
         if self.asset_manager.target_game != Game.ECHOES:
             raise ValueError("Only Echoes has dark world names.")
         if self._dark_strg_cached is None:
-            self._dark_strg_cached = self.asset_manager.get_file(self._raw.dark_world_name_id, type_hint=Strg)
+            self._dark_strg_cached = self.asset_manager.get_asset(self._raw.dark_world_name_id, type_hint=Strg)
         return self._dark_strg_cached
 
     @property
@@ -357,11 +357,11 @@ class Mlvl(BaseResource):
     @property
     def mapw(self) -> Mapw:
         if self._mapw is None:
-            self._mapw = self.asset_manager.get_file(self.raw.world_map_id, type_hint=Mapw)
+            self._mapw = self.asset_manager.get_asset(self.raw.world_map_id, type_hint=Mapw)
         return self._mapw
 
     @property
     def savw(self) -> Savw:
         if self._savw is None:
-            self._savw = self.asset_manager.get_file(self.raw.world_save_info_id, type_hint=Savw)
+            self._savw = self.asset_manager.get_asset(self.raw.world_save_info_id, type_hint=Savw)
         return self._savw

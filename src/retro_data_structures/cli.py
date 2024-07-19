@@ -367,7 +367,7 @@ def _list_areas_command(args, asset_manager: AssetManager):
         ids = [i for i in asset_manager.all_asset_ids() if asset_manager.get_asset_type(i) == "MLVL"]
 
     for mlvl_id in ids:
-        mlvl = asset_manager.get_file(mlvl_id, Mlvl)
+        mlvl = asset_manager.get_asset(mlvl_id, Mlvl)
         try:
             world_name = mlvl.world_name
         except UnknownAssetId:
@@ -415,7 +415,7 @@ def do_area_command(args):
         _list_areas_command(args, asset_manager)
         return
 
-    world = asset_manager.get_file(args.world_id, Mlvl)
+    world = asset_manager.get_asset(args.world_id, Mlvl)
     area = world.get_area(args.area_id)
 
     if args.area_command == "list-objects":

@@ -267,7 +267,7 @@ class AssetManager:
 
         return format_class.parse(self.get_raw_asset(asset_id).data, target_game=self.target_game, asset_manager=self)
 
-    def get_file(self, path: NameOrAssetId, type_hint: type[T] = BaseResource) -> T:
+    def get_asset(self, path: NameOrAssetId, type_hint: type[T] = BaseResource) -> T:
         """
         Wrapper for get_parsed_asset. Override in subclasses for additional behavior such as automatic saving.
         """
@@ -319,7 +319,7 @@ class AssetManager:
         Creates a new asset named `new_name` with the contents of `asset_id`
         :return: Asset id of the new asset.
         """
-        return self.add_new_asset(new_name, self.get_parsed_asset(asset_id), ())
+        return self.add_new_asset(new_name, self.get_raw_asset(asset_id), ())
 
     def replace_asset(self, asset_id: NameOrAssetId, new_data: Resource):
         """
@@ -507,7 +507,7 @@ class AssetManager:
 
         if self._audio_group_dependency is None:
             self._audio_group_dependency = tuple(
-                self.get_file(asset, Dgrp) for asset in self.target_game.audio_group_dependencies()
+                self.get_asset(asset, Dgrp) for asset in self.target_game.audio_group_dependencies()
             )
 
         dep = Dependency("AGSC", agsc, False)

@@ -78,7 +78,7 @@ def test_mlvl_dependencies(prime2_asset_manager: AssetManager):
     world_reports = {}
 
     for mlvl_id in _MLVLS:
-        mlvl = prime2_asset_manager.get_file(mlvl_id, Mlvl)
+        mlvl = prime2_asset_manager.get_asset(mlvl_id, Mlvl)
         logging.info(mlvl.world_name)
         world_reports[mlvl.world_name] = {}
 
@@ -147,7 +147,7 @@ def test_module_dependencies(prime2_asset_manager: AssetManager):
     world_reports = {}
 
     for mlvl_id in _MLVLS:
-        mlvl = prime2_asset_manager.get_file(mlvl_id, Mlvl)
+        mlvl = prime2_asset_manager.get_asset(mlvl_id, Mlvl)
         logging.info(mlvl.world_name)
         world_reports[mlvl.world_name] = {}
 

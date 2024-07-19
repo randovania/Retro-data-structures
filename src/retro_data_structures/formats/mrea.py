@@ -650,13 +650,13 @@ class Area:
     @property
     def strg(self) -> Strg:
         if self._strg is None:
-            self._strg = self.asset_manager.get_file(self._raw.area_name_id, type_hint=Strg)
+            self._strg = self.asset_manager.get_asset(self._raw.area_name_id, type_hint=Strg)
         return self._strg
 
     @property
     def mrea(self) -> Mrea:
         if self._mrea is None:
-            self._mrea = self.asset_manager.get_file(self.mrea_asset_id, type_hint=Mrea)
+            self._mrea = self.asset_manager.get_asset(self.mrea_asset_id, type_hint=Mrea)
         return self._mrea
 
     @property
