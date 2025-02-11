@@ -38,6 +38,7 @@ from retro_data_structures.formats.mrea import MREA, Mrea
 from retro_data_structures.formats.msbt import Msbt
 from retro_data_structures.formats.pak import Pak
 from retro_data_structures.formats.room import Room
+from retro_data_structures.formats.rule import RULE, RuleSet
 from retro_data_structures.formats.sand import SAND, Sand
 from retro_data_structures.formats.savw import SAVW, Savw
 from retro_data_structures.formats.scan import SCAN, Scan
@@ -79,6 +80,7 @@ ALL_FORMATS = {
     "SWHC": SWHC,
     "AGSC": AGSC,
     "ATBL": ATBL,
+    "RULE": RULE,
 }
 
 ALL_RESOURCE_TYPES = {
@@ -114,6 +116,7 @@ ALL_RESOURCE_TYPES = {
     "SWHC": Swhc,
     "AGSC": Agsc,
     "ATBL": Atbl,
+    "RULE": RuleSet,
 }
 
 
