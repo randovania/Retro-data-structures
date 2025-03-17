@@ -213,7 +213,7 @@ def _parse_properties(properties: Element, game_id: str, path: Path) -> dict:
     elements = []
     if (sub_properties := properties.find("SubProperties")) is not None:
         for element in sub_properties:
-            element = typing.cast(Element, element)
+            element = typing.cast("Element", element)
 
             elements.append(_parse_single_property(element, game_id, path))
 
@@ -232,7 +232,7 @@ def _parse_choice(properties: Element, game_id: str, path: Path) -> dict:
 
     if (values := properties.find("Values")) is not None:
         for element in values:
-            element = typing.cast(Element, element)
+            element = typing.cast("Element", element)
             choices[element.attrib["Name"]] = int(element.attrib["ID"], 16)
 
         name = ""
@@ -292,7 +292,7 @@ def read_property_names(map_path: Path):
 
     property_names = {
         int(item.find("Key").attrib["ID"], 16): item.find("Value").attrib["Name"]
-        for item in typing.cast(typing.Iterable[Element], m)
+        for item in typing.cast("typing.Iterable[Element]", m)
     }
 
     return property_names
@@ -1823,7 +1823,7 @@ def parse(game_ids: typing.Iterable[str] | None = None) -> dict:
     read_property_names(templates_path / "PropertyMap.xml")
 
     game_list = parse_game_list(templates_path)
-    _parse_choice.unknowns = {game: 0 for game in game_list.keys()}
+    _parse_choice.unknowns = dict.fromkeys(game_list.keys(), 0)
 
     all_games = {
         _id: parse_game(templates_path, game_path, _id)

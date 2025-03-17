@@ -19,7 +19,7 @@ class BaseVector(BaseProperty):
 
     @classmethod
     def from_json(cls, data: json_util.JsonValue) -> typing_extensions.Self:
-        json_data = typing.cast(dict[str, float], data)
+        json_data = typing.cast("dict[str, float]", data)
         return cls(json_data["x"], json_data["y"], json_data["z"])
 
     def to_json(self) -> json_util.JsonObject:
