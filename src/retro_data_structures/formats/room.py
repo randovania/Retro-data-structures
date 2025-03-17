@@ -19,7 +19,7 @@ if typing.TYPE_CHECKING:
     from retro_data_structures.game_check import Game
     from retro_data_structures.properties.prime_remastered.core.PooledString import PooledString
 
-GreedyBytes = typing.cast(construct.Construct, construct.GreedyBytes)
+GreedyBytes = typing.cast("construct.Construct", construct.GreedyBytes)
 
 LoadUnit = FormDescriptor(
     "LUNT",

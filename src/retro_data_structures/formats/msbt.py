@@ -45,7 +45,7 @@ class SectionBody(construct.Construct):
         self.entry_header = construct.Int32ul
         self.entry = entry
         self.has_entry_size = has_entry_size
-        self.int_type = typing.cast(construct.Construct, construct.Int32ul)
+        self.int_type = typing.cast("construct.Construct", construct.Int32ul)
 
     def get_offset_from_header(self, item):
         return item

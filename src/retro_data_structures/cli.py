@@ -44,7 +44,7 @@ def game_argument_type(s: str) -> Game:
     except ValueError:
         # not a number, look by name
         for g in Game:
-            g = typing.cast(Game, g)
+            g = typing.cast("Game", g)
             if g.name.lower() == s.lower():
                 return g
         raise ValueError(f"No enum named {s} found")
@@ -53,7 +53,7 @@ def game_argument_type(s: str) -> Game:
 def add_game_argument(parser: argparse.ArgumentParser, name="--game"):
     choices = []
     for g in Game:
-        g = typing.cast(Game, g)
+        g = typing.cast("Game", g)
         choices.append(g.value)
         choices.append(g.name)
 
