@@ -225,7 +225,7 @@ REAL_ELEMENT_TYPES.update(
             c=GetRealElement,
             d=GetRealElement,
         ),
-        **{k: Pass for k in [f"PAP{i}" for i in range(1, 9)]},
+        **dict.fromkeys([f"PAP{i}" for i in range(1, 9)], Pass),
         "PSLL": Pass,
         "PRLW": Pass,
         "SUB_": Struct(

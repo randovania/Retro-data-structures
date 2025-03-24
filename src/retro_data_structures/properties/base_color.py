@@ -20,7 +20,7 @@ class BaseColor(BaseProperty):
 
     @classmethod
     def from_json(cls, data: json_util.JsonValue) -> typing_extensions.Self:
-        json_data = typing.cast(dict[str, float], data)
+        json_data = typing.cast("dict[str, float]", data)
         return cls(json_data["r"], json_data["g"], json_data["b"], json_data["a"])
 
     def to_json(self) -> json_util.JsonObject:
